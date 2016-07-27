@@ -52,7 +52,7 @@ sub get_json_from_url {
 }
 
 sub collect_max_open_file_descriptors {
-    my $data = get_json_from_url("http://$host:$port/_nodes/_local/process");
+    my $data = get_json_from_url("http://$host:$port/_nodes/_local/stats/process");
     foreach my $full_node_name (keys %{$data->{nodes}}) {
         return $data->{nodes}{$full_node_name}{process}{max_file_descriptors};
     }
